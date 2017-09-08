@@ -1,0 +1,136 @@
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script>
+
+	$.fn.bbutton = function bbbutton(options) {
+
+		if (options.transition == undefined) {options.transition = "0s";}
+		if (options.width == undefined) {options.width = "";}
+		if (options.height == undefined) {options.height = "";}
+		if (options.borderradius == undefined) {options.borderradius = "";}
+		if (options.backgroundcolor == undefined) {options.backgroundcolor = "";}
+		if (options.backgroundimage == undefined) {options.backgroundimage = "";}
+		if (options.boxshadow == undefined) {options.boxshadow = "";}
+		if (options.hoverwidth == undefined) {options.hoverwidth = "";}
+		if (options.hoverheight == undefined) {options.hoverheight = "";}
+		if (options.hoverborderradius == undefined) {options.hoverborderradius = "";}
+		if (options.hoverbackgroundcolor == undefined) {options.hoverbackgroundcolor = "";}
+		if (options.hoverbackgroundimage == undefined) {options.hoverbackgroundimage = "";}
+		if (options.hoverboxshadow == undefined) {options.hoverboxshadow = "";}
+		if (options.clickwidth == undefined) {options.clickwidth = "";}
+		if (options.clickheight == undefined) {options.clickheight = "";}
+		if (options.clickborderradius == undefined) {options.clickborderradius = "";}
+		if (options.clickbackgroundcolor == undefined) {options.clickbackgroundcolor = "";}
+		if (options.clickbackgroundimage == undefined) {options.clickbackgroundimage = "";}
+		if (options.clickboxshadow == undefined) {options.clickboxshadow = "";}
+
+		$(this).css({'background-color':options.backgroundcolor});
+		$(this).css({'background-image':options.backgroundimage});
+		$(this).css({'background-size':'cover'});
+
+		$(this).css({'width':options.width});
+		$(this).css({'height':options.height});
+		$(this).css({'border-radius':options.borderradius});
+
+		$(this).css({'box-shadow':options.boxshadow});
+
+		function setTransitions(that) {
+			$(that).css({'transition':options.transition});
+			$(that).css({'-webkit-transition':options.transition});
+			$(that).css({'-o-transition':options.transition});
+			$(that).css({'-moz-transition':options.transition});
+			$(that).css({'-ms-transition':options.transition});
+		}
+
+		setTimeout(setTransitions, 100, this);
+
+		if (options.hoverbackgroundcolor != "" || options.hoverwidth != "" || options.hoverheight != "" || options.hoverborderradius != "" || options.hoverboxshadow != "") {
+			$(this).mouseover(function() {
+
+				$(this).css({'background-color':options.hoverbackgroundcolor});
+
+				$(this).css({'width':options.hoverwidth});
+				$(this).css({'height':options.hoverheight});
+
+				$(this).css({'border-radius':options.hoverborderradius});
+
+				$(this).css({'margin-left':((options.width.replace("px","") - options.hoverwidth.replace("px",""))/2) + "px"});
+				$(this).css({'margin-right':((options.width.replace("px","") - options.hoverwidth.replace("px",""))) + "px"});
+				$(this).css({'margin-top':((options.height.replace("px","") - options.hoverheight.replace("px",""))/2) + "px"});
+				$(this).css({'margin-bottom':((options.height.replace("px","") - options.hoverheight.replace("px",""))) + "px"});
+
+				$(this).css({'box-shadow':options.hoverboxshadow});
+				$(this).css({'background-image':options.hoverbackgroundimage});
+			});
+		}
+
+		$(this).mouseleave(function() {
+
+			$(this).css({'background-color':options.backgroundcolor});
+			$(this).css({'background-image':options.backgroundimage});
+
+			$(this).css({'width':options.width});
+			$(this).css({'height':options.height});
+
+			$(this).css({'border-radius':options.borderradius});
+
+			$(this).css({'margin-left':'0px'});
+			$(this).css({'margin-right':'0px'});
+			$(this).css({'margin-top':'0px'});
+			$(this).css({'margin-bottom':'0px'});
+
+			$(this).css({'box-shadow':options.boxshadow});
+		});
+
+		$(this).mousedown(function() {
+			$(this).css({'background-color':options.clickbackgroundcolor});
+
+			$(this).css({'width':options.clickwidth});
+			$(this).css({'height':options.clickheight});
+
+			$(this).css({'border-radius':options.clickborderradius});
+
+			$(this).css({'margin-left':((options.width.replace("px","") - options.clickwidth.replace("px",""))/2) + "px"});
+			$(this).css({'margin-right':((options.width.replace("px","") - options.clickwidth.replace("px",""))) + "px"});
+			$(this).css({'margin-top':((options.height.replace("px","") - options.clickheight.replace("px",""))/2) + "px"});
+			$(this).css({'margin-bottom':((options.height.replace("px","") - options.clickheight.replace("px",""))) + "px"});
+
+			$(this).css({'box-shadow':options.clickboxshadow});
+			$(this).css({'background-image':options.clickbackgroundimage});
+		});
+
+		$(this).mouseup(function() {
+
+			if (options.hoverbackgroundcolor != "" || options.hoverwidth != "" || options.hoverheight != "" || options.hoverborderradius != "" || options.hoverboxshadow != "") {
+				$(this).css({'background-color':options.hoverbackgroundcolor});
+
+				$(this).css({'width':options.hoverwidth});
+				$(this).css({'height':options.hoverheight});
+
+				$(this).css({'border-radius':options.hoverborderradius});
+
+				$(this).css({'margin-left':((options.width.replace("px","") - options.hoverwidth.replace("px",""))/2) + "px"});
+				$(this).css({'margin-right':((options.width.replace("px","") - options.hoverwidth.replace("px",""))) + "px"});
+				$(this).css({'margin-top':((options.height.replace("px","") - options.hoverheight.replace("px",""))/2) + "px"});
+				$(this).css({'margin-bottom':((options.height.replace("px","") - options.hoverheight.replace("px",""))) + "px"});
+
+				$(this).css({'box-shadow':options.hoverboxshadow});
+				$(this).css({'background-image':options.hoverbackgroundimage});
+			} else {
+				$(this).css({'background-color':options.backgroundcolor});
+				$(this).css({'background-image':options.backgroundimage});
+
+				$(this).css({'width':options.width});
+				$(this).css({'height':options.height});
+
+				$(this).css({'border-radius':options.borderradius});
+
+				$(this).css({'margin-left':'0px'});
+				$(this).css({'margin-right':'0px'});
+				$(this).css({'margin-top':'0px'});
+				$(this).css({'margin-bottom':'0px'});
+
+				$(this).css({'box-shadow':options.boxshadow});
+			}
+		});
+	}
+</script>
